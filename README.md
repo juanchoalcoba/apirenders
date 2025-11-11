@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## ApiRenders WebApp 1.0
 
 First, run the development server:
 
@@ -20,6 +20,9 @@ pnpm dev
 bun dev
 ```
 
+![Preview del proyecto](./public/git1.png)
+
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## APIs Used 🌍
@@ -35,6 +38,8 @@ API Description Docs
 ⚽ Football Data Get live league or team info Docs →
 
 Each API is consumed through reusable functions inside /services/, using proper async/await handling, environment variables, and TypeScript interfaces for type safety.
+
+![Preview del proyecto](./public/git2.png)
 
 # 🧱 Technologies Stack
 
