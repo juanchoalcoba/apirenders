@@ -4,7 +4,14 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 First, run the development server:
 
+
 ```bash
+git clone https://github.com/juanchoalcoba/apirenders.git
+
+npm install
+
+cd apirenders
+
 npm run dev
 # or
 yarn dev
@@ -16,21 +23,32 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## APIs Used 🌍
 
-To learn more about Next.js, take a look at the following resources:
+ This project integrates multiple public APIs to demonstrate different fetching approaches:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# API	Description	Docs
+# 🐕 The Dog API
+#	Fetch dog breeds, images, and details	Docs →
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 🎮 Example Pokémon API	Fetch Pokémon data (name, type, stats)	Docs →
 
-## Deploy on Vercel
+# ⚽ Football Data	Get live league or team info	Docs →
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+ Each API is consumed through reusable functions inside /services/, using proper async/await handling, environment variables, and TypeScript interfaces for type safety.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧱 Technologies Stack
+ Category	Tools
+ Framework	Next.js 14+
+
+ Language	TypeScript
+
+ Styling	Tailwind CSS
+
+ Icons	Lucide React
+
+ Code Highlighting	React Syntax Highlighter
+
+ UI/UX Enhancements	Framer Motion, Dark Mode, Responsive Components
