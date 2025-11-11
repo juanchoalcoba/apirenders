@@ -29,17 +29,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
  This project integrates multiple public APIs to demonstrate different fetching approaches:
 
-# API	Description	Docs
-# 🐕 The Dog API
-#	Fetch dog breeds, images, and details	Docs →
+ API	Description	Docs
+ 🐕 The Dog API
+	Fetch dog breeds, images, and details	Docs →
 
-# 🎮 Example Pokémon API	Fetch Pokémon data (name, type, stats)	Docs →
+ 🎮 Example Pokémon API	Fetch Pokémon data (name, type, stats)	Docs →
 
-# ⚽ Football Data	Get live league or team info	Docs →
+ ⚽ Football Data	Get live league or team info	Docs →
 
  Each API is consumed through reusable functions inside /services/, using proper async/await handling, environment variables, and TypeScript interfaces for type safety.
 
-## 🧱 Technologies Stack
+# 🧱 Technologies Stack
  Category	Tools
  Framework	Next.js 14+
 
