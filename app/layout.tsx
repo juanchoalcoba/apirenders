@@ -29,10 +29,23 @@ export default function RootLayout({
     <html lang="es" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Providers>
-          <RouteProgress /> {/* 👈 barra global */}
-          <div className="flex min-h-screen dark:bg-black bg-white">
+          <RouteProgress />
+
+          {/* 
+            👉 Layout adaptable:
+            - md:flex → sidebar visible en desktop
+            - flex-col → stack en móvil (main arriba, bottom-nav abajo)
+          */}
+          <div className="flex flex-col md:flex-row min-h-screen dark:bg-black bg-white">
             <Sidebar />
-            <main className="flex-1 p-8 overflow-y-auto ml-56 transition-all duration-300 [body[data-sidebar-collapsed='true']_&]:ml-20">
+
+            {/* 
+              👇 Ajustes importantes:
+              - En desktop: deja espacio al costado (ml-56 o ml-20)
+              - En mobile: ocupa toda la pantalla (sin margen)
+              - pb-16 → deja espacio para el bottom nav (que es fixed)
+            */}
+            <main className="flex-1 p-6 md:p-8 overflow-y-auto md:ml-56 transition-all duration-300 [body[data-sidebar-collapsed='true']_&]:md:ml-20 pb-16 md:pb-0">
               {children}
             </main>
           </div>

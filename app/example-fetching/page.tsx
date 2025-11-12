@@ -20,7 +20,7 @@ export default function ExampleFetchingPage() {
   const [selected, setSelected] = useState<CodeOption>("next");
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-950 to-gray-800 text-white flex flex-col items-center justify-center px-6 py-16">
+    <main className="min-h-screen rounded-3xl bg-gradient-to-b from-gray-950 to-gray-800 text-white flex flex-col items-center justify-center px-6 py-16">
       {/* Header */}
       <div className="flex justify-between w-full pb-8 items-center">
         <ThemeToggle />

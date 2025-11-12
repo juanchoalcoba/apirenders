@@ -4,7 +4,7 @@ import { useState, useMemo, useCallback } from "react";
 import DogCard from "./DogCard";
 import FilterBar from "@/app/characters/components/FilterBar"; // ajusta el path si está en otra carpeta
 import { Dog } from "@/app/types/types";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, DogIcon, Users } from "lucide-react";
 import Link from "next/link";
 import { ThemeToggle } from "@/app/characters/components/ThemeToogle";
 
@@ -57,10 +57,17 @@ export default function DogList({ dogs, itemsPerPage = 10 }: Props) {
   // 🔹 Render
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex justify-between items-center gap-12">
-        <h1 className="text-4xl font-bold text-center mb-8">Dog Breeds</h1>
+      <div className="flex flex-col gap-y-4 md:gap-0 md:flex-row items-center justify-between mb-10">
+        <div className="flex items-center gap-3">
+          <div className="p-3 rounded-xl bg-blue-600 text-white shadow-md">
+            <DogIcon className="w-6 h-6" />
+          </div>
+          <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">
+            DoGs
+          </h1>
+        </div>
 
-        <div className="flex  gap-12">
+        <div className="flex gap-12">
           <ThemeToggle />
           <Link
             href="/"

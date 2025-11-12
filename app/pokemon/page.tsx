@@ -2,17 +2,24 @@ import { getPokemon } from "../utils/getPokemon";
 import PokemonList from "./components/PokemonList";
 import { ThemeToggle } from "../characters/components/ThemeToogle";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Users } from "lucide-react";
 
 export default async function Home() {
   const pokemons = await getPokemon(20);
 
   return (
     <main className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center gap-12">
-        <h1 className="text-4xl font-bold text-center mb-8">Pokédex</h1>
+      <div className="flex flex-col gap-y-4 md:gap-0 md:flex-row items-center justify-between mb-10">
+        <div className="flex items-center gap-3">
+          <div className="p-3 rounded-xl bg-blue-600 text-white shadow-md">
+            <Users className="w-6 h-6" />
+          </div>
+          <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">
+            Pokemons
+          </h1>
+        </div>
 
-        <div className="flex  gap-12">
+        <div className="flex gap-12">
           <ThemeToggle />
           <Link
             href="/"
