@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { Character } from "@/app/types/types";
 import CharacterCard from "./CharacterCard";
 import FilterBar from "./FilterBar";
@@ -16,6 +16,13 @@ export default function CharacterList({
 }: CharacterListProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [filter, setFilter] = useState("");
+
+
+    // 🔹 Cuando cambia el filtro, reseteamos la página
+    const handleFilterChange = useCallback((value: string) => {
+      setFilter(value);
+      setCurrentPage(1);
+    }, []);
 
   // 🔹 Filtrado
   const filtered = useMemo(() => {
@@ -35,7 +42,7 @@ export default function CharacterList({
 
   return (
     <div>
-      <FilterBar onFilter={setFilter} />
+      <FilterBar onFilter={handleFilterChange} />
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {paginated.map((character) => (

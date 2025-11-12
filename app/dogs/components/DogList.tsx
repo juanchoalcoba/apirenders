@@ -17,6 +17,8 @@ export default function DogList({ dogs, itemsPerPage = 10 }: Props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [filter, setFilter] = useState("");
 
+  
+
   // 🔹 Cuando cambia el filtro, reseteamos la página
   const handleFilterChange = useCallback((value: string) => {
     setFilter(value);

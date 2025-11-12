@@ -40,9 +40,8 @@ export default async function UsersPage() {
       <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700 hover:scrollbar-thumb-blue-500 rounded-xl">
         <FilterBar users={users} />
       </div>
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent mb-8" />
 
-      {/* Fondo decorativo */}
-      <div className="absolute inset-0 -z-10 opacity-10 blur-3xl bg-[radial-gradient(ellipse_at_top_right,rgba(37,99,235,0.5),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.4),transparent_60%)]" />
     </section>
   );
 }

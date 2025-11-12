@@ -1,4 +1,4 @@
-import { League } from "@/app/utils/getLeagues";
+import { League } from "@/app/types/types";
 import LeagueCard from "./LeagueCard";
 
 interface Props {
