@@ -2,29 +2,15 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, User, Settings, Info } from "lucide-react";
+import { tabs, TabKey } from "./tabs/tabs";
+
 import HomeTab from "./tabs/HomeTab";
 import Profile from "./tabs/Profile";
 import AboutTab from "./tabs/AboutTab";
 import SettingsTab from "./tabs/SettingsTab";
 
-type TabKey = "home" | "profile" | "settings" | "about";
-
-interface TabItem {
-  key: TabKey;
-  label: string;
-  icon: React.ReactNode;
-}
-
 export default function ModernTabs() {
   const [activeTab, setActiveTab] = useState<TabKey>("home");
-
-  const tabs: TabItem[] = [
-    { key: "home", label: "Inicio", icon: <Home size={18} /> },
-    { key: "profile", label: "Perfil", icon: <User size={18} /> },
-    { key: "settings", label: "Ajustes", icon: <Settings size={18} /> },
-    { key: "about", label: "Acerca de", icon: <Info size={18} /> },
-  ];
 
   const renderContent = () => {
     switch (activeTab) {
@@ -43,21 +29,24 @@ export default function ModernTabs() {
     <div className="max-w-xl mx-auto mt-24 p-6 bg-white rounded-2xl shadow-xl border border-gray-100">
       {/* Barra de navegación */}
       <div className="flex justify-between mb-6 bg-gray-50 p-2 rounded-xl">
-        {tabs.map((tab) => (
-          <button
-            key={tab.key}
-            onClick={() => setActiveTab(tab.key)}
-            className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-lg transition-all duration-300
-              ${
-                activeTab === tab.key
-                  ? "bg-white shadow text-blue-600 font-semibold"
-                  : "text-gray-500 hover:text-blue-500"
-              }`}
-          >
-            {tab.icon}
-            <span className="text-sm">{tab.label}</span>
-          </button>
-        ))}
+        {tabs.map((tab) => {
+          const Icon = tab.Icon; // Instanciamos el componente
+          return (
+            <button
+              key={tab.key}
+              onClick={() => setActiveTab(tab.key)}
+              className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-lg transition-all duration-300
+                ${
+                  activeTab === tab.key
+                    ? "bg-white shadow text-blue-600 font-semibold"
+                    : "text-gray-500 hover:text-blue-500"
+                }`}
+            >
+              <Icon size={18} />
+              <span className="text-sm">{tab.label}</span>
+            </button>
+          );
+        })}
       </div>
 
       {/* Contenido animado */}

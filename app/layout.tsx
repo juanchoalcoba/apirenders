@@ -4,8 +4,6 @@ import { Providers } from "./providers";
 import Sidebar from "./components/Sidebar";
 import RouteProgress from "./components/RouteProgress";
 
-
-
 export const metadata: Metadata = {
   title: "Prueba Técnica",
   description: "Dashboard con sidebar y rutas",
