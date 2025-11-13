@@ -3,11 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { tabs, TabKey } from "./tabs/tabs";
-
-import HomeTab from "./tabs/HomeTab";
-import Profile from "./tabs/Profile";
-import AboutTab from "./tabs/AboutTab";
-import SettingsTab from "./tabs/SettingsTab";
+import { HomeTab, Profile, AboutTab, SettingsTab } from "./tabs";
 
 export default function ModernTabs() {
   const [activeTab, setActiveTab] = useState<TabKey>("home");
