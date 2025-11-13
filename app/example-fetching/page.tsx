@@ -8,7 +8,6 @@ import AnimatedCode from "./components/AnimatedCode";
 import { codeExamples } from "../data/fetchExamples";
 import { cn } from "../lib/utils";
 
-
 const CODE_OPTIONS = [
   { key: "next", label: "Next.js" },
   { key: "react", label: "React.js" },

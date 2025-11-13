@@ -44,7 +44,7 @@ export default function AnimatedCode({ code }: AnimatedCodeProps) {
           padding: 0,
           fontSize: "0.9rem",
           whiteSpace: "pre-wrap",
-        }}
+        }} 
       >
         {typedText}
       </SyntaxHighlighter>
