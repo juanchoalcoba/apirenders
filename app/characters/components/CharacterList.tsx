@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import { Character } from "@/app/types/types";
 import CharacterCard from "./CharacterCard";
 import FilterBar from "./FilterBar";
@@ -15,23 +15,30 @@ export default function CharacterList({
   itemsPerPage = 8,
 }: CharacterListProps) {
   const [currentPage, setCurrentPage] = useState(1);
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState<string>("");
+  const [debouncedQuery, setDebouncedQuery] = useState<string>("");
 
 
-    // 🔹 Cuando cambia el filtro, reseteamos la página
-    const handleFilterChange = useCallback((value: string) => {
-      setFilter(value);
-      setCurrentPage(1);
-    }, []);
 
-  // 🔹 Filtrado
+  // 🔹 Cuando cambia el filtro, reseteamos la página
+  const handleFilterChange = useCallback((value: string) => {
+    setFilter(value);
+  }, []);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedQuery(filter)
+      setCurrentPage(1)
+    }, 500) 
+    return () => clearTimeout(handler)
+  },[filter])
+
   const filtered = useMemo(() => {
-    return characters.filter((c) =>
-      c.name.toLowerCase().includes(filter.toLowerCase())
-    );
-  }, [characters, filter]);
+    return characters.filter((c) => 
+      c.name.toLowerCase().includes(debouncedQuery.toLowerCase())
+    )
+  }, [characters, debouncedQuery])
 
-  // 🔹 Paginación
   const paginated = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
@@ -96,6 +103,3 @@ export default function CharacterList({
     </div>
   );
 }
-
-
-

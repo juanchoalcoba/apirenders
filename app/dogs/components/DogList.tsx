@@ -45,15 +45,6 @@ export default function DogList({ dogs, itemsPerPage = 10 }: Props) {
     return filtered.slice(start, end);
   }, [filtered, currentPage, itemsPerPage]);
 
-  // 🔹 Navegación entre páginas
-  const handlePrev = useCallback(() => {
-    setCurrentPage((p) => Math.max(p - 1, 1));
-  }, []);
-
-  const handleNext = useCallback(() => {
-    setCurrentPage((p) => Math.min(p + 1, totalPages));
-  }, [totalPages]);
-
   // 🔹 Render
   return (
     <div className="flex flex-col gap-6">
@@ -98,7 +89,7 @@ export default function DogList({ dogs, itemsPerPage = 10 }: Props) {
           <div className="flex justify-between items-center mt-6">
             <button
               disabled={currentPage === 1}
-              onClick={handlePrev}
+              onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
               className="
                 p-2 px-4 
                 bg-blue-900 
@@ -121,7 +112,7 @@ export default function DogList({ dogs, itemsPerPage = 10 }: Props) {
 
             <button
               disabled={currentPage === totalPages}
-              onClick={handleNext}
+              onClick={() => setCurrentPage((p) => Math.max(p + 1, totalPages))}
               className="
                 p-2 px-4 
                 bg-blue-900 

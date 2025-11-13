@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo, useCallback } from "react";
+import { useState, useCallback } from "react";
 import PokemonCard from "./PokemonCard";
 import FilterBar from "@/app/characters/components/FilterBar";
 import { Pokemon } from "@/app/types/types";
@@ -19,21 +19,17 @@ export default function PokemonList({ pokemons, itemsPerPage = 6 }: Props) {
   }, []);
 
   // 🔹 Filtrado (case insensitive)
-  const filtered = useMemo(() => {
-    return pokemons.filter((p) =>
-      p.name.toLowerCase().includes(filter.toLowerCase())
-    );
-  }, [pokemons, filter]);
+  const filtered = pokemons.filter((c) => 
+    c.name.toLowerCase().includes(filter.toLowerCase())
+  )
 
   // 🔹 Paginación
+  
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const paginated = filtered.slice(start, end) 
+
   const totalPages = Math.ceil(filtered.length / itemsPerPage);
-
-  const paginated = useMemo(() => {
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    return filtered.slice(start, end);
-  }, [filtered, currentPage, itemsPerPage]);
-
   // 🔹 Handlers
   const handlePrev = useCallback(() => {
     setCurrentPage((p) => Math.max(p - 1, 1));
@@ -43,6 +39,8 @@ export default function PokemonList({ pokemons, itemsPerPage = 6 }: Props) {
     setCurrentPage((p) => Math.min(p + 1, totalPages));
   }, [totalPages]);
 
+
+  
   // 🔹 Render
   return (
     <div className="flex flex-col gap-6">
@@ -58,8 +56,8 @@ export default function PokemonList({ pokemons, itemsPerPage = 6 }: Props) {
       ) : (
         <>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {paginated.map((pokemon, index) => (
-              <PokemonCard key={pokemon.name} pokemon={pokemon} index={index} />
+            {paginated.map((pokemon) => (
+              <PokemonCard key={pokemon.name} pokemon={pokemon} />
             ))}
           </div>
 

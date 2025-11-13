@@ -2,19 +2,31 @@
 
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // ✅ Esperamos a que el componente esté montado (cliente)
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    // Evita renderizar nada hasta que el tema esté disponible
+    return null;
+  }
 
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-full cursor-pointer dark:text-white dark:bg-gray-100  transition-colors"
+      className="p-2 rounded-full cursor-pointer transition-colors dark:text-white dark:bg-gray-100"
     >
       {theme === "dark" ? (
         <Sun className="w-5 h-5 text-yellow-700" />
       ) : (
-        <Moon className="w-5 h-5 dark:text-gray-900  tex-white" />
+        <Moon className="w-5 h-5 text-gray-900" />
       )}
     </button>
   );

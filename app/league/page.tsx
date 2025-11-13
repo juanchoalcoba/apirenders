@@ -1,4 +1,4 @@
-import { ArrowLeft, PlaySquareIcon } from "lucide-react";
+import { ArrowLeft, PlaySquareIcon, Volleyball } from "lucide-react";
 import { getMainLeagues } from "../utils/getLeagues";
 import LeagueList from "./components/LeagueList";
 import Link from "next/link";
@@ -12,7 +12,7 @@ export default async function Home() {
       <div className="flex flex-col gap-y-4 md:gap-0 md:flex-row items-center justify-between mb-10">
         <div className="flex items-center gap-3">
           <div className="p-3 rounded-xl bg-blue-600 text-white shadow-md">
-            <PlaySquareIcon className="w-6 h-6" />
+            <Volleyball className="w-6 h-6" />
           </div>
           <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">
             Leagues

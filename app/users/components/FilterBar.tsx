@@ -71,17 +71,8 @@ export default function FilterBar({ users }: { users: User[] }) {
     return sorted.slice(start, end);                // Devuelve ese trozo del array
   }, [sorted, currentPage]);
 
-
   // 📊 Calcula cuántas páginas hay en total
   const totalPages = Math.ceil(sorted.length / itemsPerPage);
-
-
-  // ⬅️ Manejador para ir a la página anterior
-  const handlePrev = () => setCurrentPage((p) => Math.max(p - 1, 1));
-
-  // ➡️ Manejador para ir a la página siguiente
-  const handleNext = () => setCurrentPage((p) => Math.min(p + 1, totalPages));
-
 
   // 💅 Renderizado del componente
   return (
@@ -150,7 +141,7 @@ export default function FilterBar({ users }: { users: User[] }) {
         
         {/* Botón Anterior */}
         <button
-          onClick={handlePrev}
+          onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
           disabled={currentPage === 1} // Deshabilitado en la primera página
           className="
             flex items-center gap-1 px-3 py-1.5 sm:px-3 sm:py-2
@@ -170,7 +161,7 @@ export default function FilterBar({ users }: { users: User[] }) {
 
         {/* Botón Siguiente */}
         <button
-          onClick={handleNext}
+          onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
           disabled={currentPage === totalPages} // Deshabilitado en la última página
           className="
             flex items-center gap-1 px-3 py-1.5 sm:px-3 sm:py-2
