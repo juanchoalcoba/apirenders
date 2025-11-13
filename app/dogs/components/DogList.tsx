@@ -4,7 +4,7 @@ import { useState, useMemo, useCallback } from "react";
 import DogCard from "./DogCard";
 import FilterBar from "@/app/characters/components/FilterBar"; // ajusta el path si está en otra carpeta
 import { Dog } from "@/app/types/types";
-import { ArrowLeft, DogIcon, Users } from "lucide-react";
+import { ArrowLeft, DogIcon } from "lucide-react";
 import Link from "next/link";
 import { ThemeToggle } from "@/app/characters/components/ThemeToogle";
 
