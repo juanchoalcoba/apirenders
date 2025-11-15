@@ -14,7 +14,7 @@ export default async function Home() {
           <div className="p-3 rounded-xl bg-blue-600 text-white shadow-md">
             <Users className="w-6 h-6" />
           </div>
-          <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">
             Pokemons
           </h1>
         </div>

@@ -6,19 +6,30 @@ import { Character } from '@/app/types/types'
 export default function CharacterCard({ character }: { character: Character }) {
   return (
     <div
-      className="
-        group
-        bg-white dark:bg-gradient-to-b from-gray-950 to-gray-800 
-        text-neutral-900 dark:text-white
-        border border-neutral-200 dark:border-neutral-800
-        rounded-2xl
-        shadow-md 
-        p-4 sm:p-5
-        flex flex-col items-center gap-3
-        transition-all duration-300
-        hover:shadow-xl hover:scale-[1.03]
-      "
-    >
+  className="
+    group
+    bg-white dark:bg-gradient-to-b from-gray-950 to-gray-800 
+    text-neutral-900 dark:text-white
+    border border-neutral-200 dark:border-neutral-800
+    rounded-2xl
+    shadow-md 
+    p-4 sm:p-5
+
+    flex 
+    flex-col        /* mobile → columna */
+    sm:flex-row     /* sm → fila */
+    md:flex-col     /* md → vuelve a columna para no aplastar en 2 columnas */
+    lg:flex-col     /* lg → columna clásica */
+
+    items-center 
+    justify-between
+    gap-3
+    
+    transition-all duration-300
+    hover:shadow-xl hover:scale-[1.03]
+  "
+>
+
       {/* Imagen */}
       <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden shadow-md">
         <Image

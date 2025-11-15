@@ -52,7 +52,7 @@ export default function CharacterList({
     <div className="space-y-4">
       <FilterBar onFilter={handleFilter} />
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-4">
         {paginated.map((character) => (
           <CharacterCard key={character.id} character={character} />
         ))}
