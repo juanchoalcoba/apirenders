@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Team } from "../../utils/getTeams";
+import { Team } from "@/app/types/types";
 
 interface Props {
   team: Team;
