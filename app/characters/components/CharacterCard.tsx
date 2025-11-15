@@ -1,35 +1,39 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { Character } from '@/app/types/types'
 
 export default function CharacterCard({ character }: { character: Character }) {
   return (
-    <div
-  className="
-    group
-    bg-white dark:bg-gradient-to-b from-gray-950 to-gray-800 
-    text-neutral-900 dark:text-white
-    border border-neutral-200 dark:border-neutral-800
-    rounded-2xl
-    shadow-md 
-    p-4 sm:p-5
+    <Link
+      href={`/characters/${character.id}`}
+      className="
+        group
+        bg-white dark:bg-gradient-to-b from-gray-950 to-gray-800 
+        text-neutral-900 dark:text-white
+        border border-neutral-200 dark:border-neutral-800
+        rounded-2xl
+        shadow-md 
+        p-4 sm:p-5
 
-    flex 
-    flex-col        /* mobile → columna */
-    sm:flex-row     /* sm → fila */
-    md:flex-col     /* md → vuelve a columna para no aplastar en 2 columnas */
-    lg:flex-col     /* lg → columna clásica */
+        flex 
+        flex-col        /* mobile → columna */
+        sm:flex-row     /* sm → fila */
+        md:flex-col     /* md → vuelve a columna para no aplastar en 2 columnas */
+        lg:flex-col     /* lg → columna clásica */
 
-    items-center 
-    justify-between
-    gap-3
-    
-    transition-all duration-300
-    hover:shadow-xl hover:scale-[1.03]
-  "
->
-
+        items-center 
+        justify-between
+        gap-3
+        
+        transition-all duration-300
+        hover:shadow-xl hover:scale-[1.03]
+        cursor-pointer
+        focus-visible:ring-4 focus-visible:ring-blue-500/50 
+        outline-none
+      "
+    >
       {/* Imagen */}
       <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden shadow-md">
         <Image
@@ -73,7 +77,7 @@ export default function CharacterCard({ character }: { character: Character }) {
           rounded-full
           ${
             character.status === "Alive"
-              ? "bg-green-500/20 dark:text-green-300 border  border-green-400/30"
+              ? "bg-green-500/20 dark:text-green-300 border border-green-400/30"
               : character.status === "Dead"
               ? "bg-red-500/20 dark:text-red-300 border border-red-400/30"
               : "bg-gray-500/20 dark:text-gray-300 border border-gray-400/20"
@@ -82,6 +86,6 @@ export default function CharacterCard({ character }: { character: Character }) {
       >
         {character.status}
       </span>
-    </div>
+    </Link>
   )
 }

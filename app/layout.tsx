@@ -27,7 +27,6 @@ export default function RootLayout({
             - flex-col → stack en móvil (main arriba, bottom-nav abajo)
           */}
           <div className="flex flex-col md:flex-row h-dvh dark:bg-black bg-white">
-
             <Sidebar />
 
             {/* 

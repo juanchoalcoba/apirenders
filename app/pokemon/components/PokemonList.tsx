@@ -9,7 +9,7 @@ interface Props {
   itemsPerPage?: number;
 }
 
-export default function PokemonList({ pokemons, itemsPerPage = 6 }: Props) {
+export default function PokemonList({ pokemons, itemsPerPage = 4 }: Props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [filter, setFilter] = useState("");
 

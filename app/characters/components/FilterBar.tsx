@@ -21,7 +21,7 @@ export default function FilterBar({ onFilter, placeholder = "Buscar..." }: Props
       placeholder={placeholder} 
       value={query}
       onChange={e => setQuery(e.target.value)}
-      className="p-2 border rounded mb-4 w-full"
+      className="p-2 border rounded-2xl mb-4 w-full"
     />
   )
 }

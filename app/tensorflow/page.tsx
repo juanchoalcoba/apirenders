@@ -227,7 +227,7 @@ export default function ObjectDetection() {
               <button
                 onClick={startCamera}
                 disabled={isLoading || isDetecting}
-                className="flex-1 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 disabled:bg-gray-600 text-white font-semibold py-2 md:py-3 px-6 rounded-lg transition-all"
+                className="flex-1 bg-gradient-to-r from-green-700 to-emerald-600 hover:from-green-800 hover:to-emerald-700 disabled:bg-gray-600 text-white font-semibold py-2 md:py-3 px-6 rounded-lg transition-all"
               >
                 {isLoading ? "Cargando modelo..." : "Iniciar Cámara"}
               </button>
@@ -235,7 +235,7 @@ export default function ObjectDetection() {
               <button
                 onClick={stopCamera}
                 disabled={!isDetecting}
-                className="flex-1 bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 disabled:bg-gray-600 text-white font-semibold py-2 md:py-3 px-6 rounded-lg transition-all"
+                className="flex-1 bg-gradient-to-r from-red-700 to-rose-600 hover:from-red-600 hover:to-rose-800 disabled:bg-gray-600 text-white font-semibold py-2 md:py-3 px-6 rounded-lg transition-all"
               >
                 Detener
               </button>

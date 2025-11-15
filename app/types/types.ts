@@ -5,10 +5,57 @@ export interface User {
   email: string;
 }
 
+// types/types.ts
+
+// Tipo básico para la lista de Pokémon
 export interface Pokemon {
-  id: number;
+  id?: number;
   name: string;
   url: string;
+}
+
+// Tipo detallado para un Pokémon individual
+export interface PokemonDetail {
+  id: number;
+  name: string;
+  height: number;
+  weight: number;
+  types: PokemonType[];
+  abilities: PokemonAbility[];
+  stats: PokemonStat[];
+  sprites: {
+    other: {
+      "official-artwork": {
+        front_default: string;
+      };
+    };
+  };
+}
+
+export interface PokemonType {
+  slot: number;
+  type: {
+    name: string;
+    url: string;
+  };
+}
+
+export interface PokemonAbility {
+  ability: {
+    name: string;
+    url: string;
+  };
+  is_hidden: boolean;
+  slot: number;
+}
+
+export interface PokemonStat {
+  base_stat: number;
+  effort: number;
+  stat: {
+    name: string;
+    url: string;
+  };
 }
 
 export interface Dog {
@@ -34,24 +81,22 @@ export interface ApiCharacter {
   name: string;
   status: "Alive" | "Dead" | "unknown";
   species: string;
-  type: string;
+  type: string; // ✅ Agrega esta
   gender: "Female" | "Male" | "Genderless" | "unknown";
+  image: string;
   origin: { name: string; url: string };
   location: { name: string; url: string };
-  image: string;
-  episode: string[];
-  url: string;
-  created: string;
+  episode?: string[]; // ✅ Agrega esta
 }
 
 export interface ApiResponse {
+  results: ApiCharacter[];
   info: {
     count: number;
     pages: number;
     next: string | null;
     prev: string | null;
   };
-  results: ApiCharacter[];
 }
 
 export interface Character {
@@ -59,8 +104,12 @@ export interface Character {
   name: string;
   status: "Alive" | "Dead" | "unknown";
   species: string;
+  type: string; // ✅ Agrega esta
   gender: "Female" | "Male" | "Genderless" | "unknown";
   image: string;
+  origin: { name: string; url: string };
+  location: { name: string; url: string };
+  episode?: string[]; // ✅ Agrega esta (array de URLs de episodios)
 }
 
 export type ApiLeaguesResponse = {

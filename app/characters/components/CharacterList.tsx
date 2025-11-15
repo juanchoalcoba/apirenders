@@ -11,7 +11,7 @@ interface CharacterListProps {
 
 export default function CharacterList({
   characters,
-  itemsPerPage = 8,
+  itemsPerPage = 4 ,
 }: CharacterListProps) {
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");

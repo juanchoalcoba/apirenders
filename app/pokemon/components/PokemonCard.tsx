@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Pokemon } from "@/app/types/types";
 
 interface Props {
@@ -6,8 +7,6 @@ interface Props {
 }
 
 export default function PokemonCard({ pokemon }: Props) {
-  // Si la API te da una URL como:
-  // "https://pokeapi.co/api/v2/pokemon/25/"
   const id = pokemon.url
     ? pokemon.url.split("/").filter(Boolean).pop()
     : pokemon.id;
@@ -15,7 +14,10 @@ export default function PokemonCard({ pokemon }: Props) {
   const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
   return (
-    <div className="flex flex-col items-center bg-white dark:bg-gradient-to-b from-gray-950 to-gray-800 shadow-md rounded-xl p-4 hover:scale-105 transition-all">
+    <Link
+      href={`/pokemon/${id}`}
+      className="flex flex-col items-center bg-white dark:bg-gradient-to-b from-gray-950 to-gray-800 shadow-md rounded-xl p-4 hover:scale-105 transition-all cursor-pointer focus-visible:ring-4 focus-visible:ring-blue-500/50 outline-none"
+    >
       <Image
         src={imageUrl}
         alt={pokemon.name}
@@ -26,6 +28,6 @@ export default function PokemonCard({ pokemon }: Props) {
       <p className="mt-2 font-semibold text-gray-800 dark:text-white capitalize">
         {pokemon.name}
       </p>
-    </div>
+    </Link>
   );
 }
