@@ -36,6 +36,7 @@ export default function CharacterList({
   );
 
   const totalPages = Math.ceil(filtered.length / itemsPerPage);
+
   const paginated = filtered.slice(
     (page - 1) * itemsPerPage,
     page * itemsPerPage

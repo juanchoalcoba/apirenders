@@ -3,6 +3,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import Sidebar from "./components/Sidebar";
 import RouteProgress from "./components/RouteProgress";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Prueba Técnica",
@@ -36,6 +37,7 @@ export default function RootLayout({
             */}
             <main className="flex-1 p-6 md:p-8 overflow-y-auto md:ml-56 transition-all duration-300 [body[data-sidebar-collapsed='true']_&]:md:ml-20 pb-16 md:pb-0">
               {children}
+              <Footer />
             </main>
           </div>
         </Providers>
