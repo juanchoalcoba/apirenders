@@ -16,7 +16,7 @@ const routes: RouteItem[] = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen rounded-2xl  w-full p-10 bg-gradient-to-br from-slate-900 to-slate-800 flex flex-col items-center">
+    <div className="min-h-screen rounded-2xl  w-full p-10 bg-gradient-to-b from-gray-950 to-gray-800 flex flex-col items-center">
       {/* Header */}
       <div className="text-center mb-12 ">
         <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">
