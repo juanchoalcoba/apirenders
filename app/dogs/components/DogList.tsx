@@ -107,7 +107,7 @@ export default function DogList({ dogs, itemsPerPage = 10 }: Props) {
             </button>
 
             <span className="font-medium text-gray-800 dark:text-gray-200">
-              Página {currentPage} / {totalPages}
+              {currentPage} / {totalPages}
             </span>
 
             <button
