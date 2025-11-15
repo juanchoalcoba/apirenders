@@ -21,7 +21,7 @@ export default function ExampleFetchingPage() {
   return (
     <main className="min-h-screen rounded-3xl bg-gradient-to-b from-gray-950 to-gray-800 text-white flex flex-col items-center justify-center px-6 py-16">
       {/* Header */}
-      <div className="flex justify-between w-full pb-8 items-center">
+      <div className="flex justify-center md:justify-end w-full gap-x-12 pb-12 pr-12 items-center">
         <ThemeToggle />
         <Link
           href="/"
