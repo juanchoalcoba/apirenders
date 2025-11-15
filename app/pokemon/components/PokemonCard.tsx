@@ -15,7 +15,7 @@ export default function PokemonCard({ pokemon }: Props) {
   const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
   return (
-    <div className="flex flex-col items-center bg-white dark:bg-gray-800 shadow-md rounded-xl p-4 hover:scale-105 transition-all">
+    <div className="flex flex-col items-center bg-white dark:bg-gradient-to-b from-gray-950 to-gray-800 shadow-md rounded-xl p-4 hover:scale-105 transition-all">
       <Image
         src={imageUrl}
         alt={pokemon.name}

@@ -26,7 +26,7 @@ export default function Loading() {
               overflow-hidden
               shadow-md
               flex flex-col items-center p-4
-              bg-white
+              bg-white dark:bg-gradient-to-b from-gray-950 to-gray-800 
               animate-pulse
             "
           >

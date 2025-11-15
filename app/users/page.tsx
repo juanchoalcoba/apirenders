@@ -9,7 +9,7 @@ export default async function UsersPage() {
   const users: User[] = await getUsers();
 
   return (
-    <section className="flex flex-col   max-w-6xl mx-auto px-6 py-12 sm:px-10 sm:py-16 rounded-3xl shadow-md bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-all duration-500">
+    <section className="flex flex-col   max-w-6xl mx-auto px-6 py-12 sm:px-10 sm:py-16 rounded-3xl shadow-md  transition-all duration-500">
       {/* Header */}
       <div className="flex flex-col gap-y-4 md:gap-0 md:flex-row items-center justify-between mb-10">
         <div className="flex items-center gap-3">

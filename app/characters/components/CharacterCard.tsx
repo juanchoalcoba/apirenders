@@ -8,7 +8,7 @@ export default function CharacterCard({ character }: { character: Character }) {
     <div
       className="
         group
-        bg-white dark:bg-neutral-900 
+        bg-white dark:bg-gradient-to-b from-gray-950 to-gray-800 
         text-neutral-900 dark:text-white
         border border-neutral-200 dark:border-neutral-800
         rounded-2xl
@@ -62,10 +62,10 @@ export default function CharacterCard({ character }: { character: Character }) {
           rounded-full
           ${
             character.status === "Alive"
-              ? "bg-green-500/20 text-green-300 border border-green-400/30"
+              ? "bg-green-500/20 dark:text-green-300 border  border-green-400/30"
               : character.status === "Dead"
-              ? "bg-red-500/20 text-red-300 border border-red-400/30"
-              : "bg-gray-500/20 text-gray-300 border border-gray-400/20"
+              ? "bg-red-500/20 dark:text-red-300 border border-red-400/30"
+              : "bg-gray-500/20 dark:text-gray-300 border border-gray-400/20"
           }
         `}
       >

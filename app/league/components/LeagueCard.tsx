@@ -18,7 +18,7 @@ export default function LeagueCard({ league }: Props) {
   return (
     <div
       onClick={handleClick}
-      className="flex flex-col items-center bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 hover:shadow-xl hover:scale-105 transition-all cursor-pointer"
+      className="flex flex-col items-center bg-white dark:bg-gradient-to-b from-gray-950 to-gray-800 shadow-md rounded-xl p-6 hover:shadow-xl hover:scale-105 transition-all cursor-pointer"
     >
       {league.logo && (
         <Image

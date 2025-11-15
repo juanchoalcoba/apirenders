@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useRef, useEffect, useState, useCallback } from "react";
 import { Camera, Sparkles, AlertCircle } from "lucide-react";
 import type { ObjectDetection as CocoSsdModel } from "@tensorflow-models/coco-ssd";
@@ -40,13 +40,12 @@ export default function ObjectDetection() {
         setModel(loadedModel);
         setIsLoading(false);
       } catch (err: unknown) {
-  if (err instanceof Error) {
-    setError("Error cargando modelo: " + err.message);
-  } else {
-    setError("Error cargando modelo: error desconocido");
-  }
-}
-
+        if (err instanceof Error) {
+          setError("Error cargando modelo: " + err.message);
+        } else {
+          setError("Error cargando modelo: error desconocido");
+        }
+      }
     };
 
     load();
@@ -70,13 +69,12 @@ export default function ObjectDetection() {
         };
       }
     } catch (err: unknown) {
-  if (err instanceof Error) {
-    setError("Error cargando modelo: " + err.message);
-  } else {
-    setError("Error cargando modelo: error desconocido");
-  }
-}
-
+      if (err instanceof Error) {
+        setError("Error cargando modelo: " + err.message);
+      } else {
+        setError("Error cargando modelo: error desconocido");
+      }
+    }
   }, []);
 
   // =====================================
@@ -176,154 +174,150 @@ export default function ObjectDetection() {
   // =====================================
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 p-4 md:p-8">
-  <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-b rounded-3xl from-gray-950 to-gray-800 p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-6 md:mb-8">
+          <div className="flex items-center justify-center gap-2 md:gap-3 mb-3">
+            <Sparkles className="w-6 h-6 md:w-10 md:h-10 text-yellow-400" />
+            <h1 className="text-2xl md:text-4xl font-bold text-white">
+              Detector de Objetos con IA
+            </h1>
+            <Sparkles className="w-6 h-6 md:w-10 md:h-10 text-yellow-400" />
+          </div>
+          <p className="text-blue-200 text-sm md:text-lg">
+            TensorFlow.js + Next.js en tiempo real
+          </p>
+        </div>
 
-    {/* Header */}
-    <div className="text-center mb-6 md:mb-8">
-      <div className="flex items-center justify-center gap-2 md:gap-3 mb-3">
-        <Sparkles className="w-6 h-6 md:w-10 md:h-10 text-yellow-400" />
-        <h1 className="text-2xl md:text-4xl font-bold text-white">
-          Detector de Objetos con IA
-        </h1>
-        <Sparkles className="w-6 h-6 md:w-10 md:h-10 text-yellow-400" />
-      </div>
-      <p className="text-blue-200 text-sm md:text-lg">
-        TensorFlow.js + Next.js en tiempo real
-      </p>
-    </div>
+        {/* Main grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+          {/* Video */}
+          <div className="md:col-span-2 bg-black/30 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10">
+            <div className="relative">
+              {/* VIDEO INVISIBLE */}
+              <video
+                ref={videoRef}
+                className="w-full rounded-lg"
+                style={{
+                  visibility: "hidden",
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                }}
+              />
 
-    {/* Main grid */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              {/* CANVAS */}
+              <canvas ref={canvasRef} className="w-full rounded-lg" />
 
-      {/* Video */}
-      <div className="md:col-span-2 bg-black/30 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10">
-        <div className="relative">
-
-          {/* VIDEO INVISIBLE */}
-          <video
-            ref={videoRef}
-            className="w-full rounded-lg"
-            style={{
-              visibility: "hidden",
-              position: "absolute",
-              top: 0,
-              left: 0,
-            }}
-          />
-
-          {/* CANVAS */}
-          <canvas ref={canvasRef} className="w-full rounded-lg" />
-
-          {!isDetecting && !isLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-lg">
-              <div className="text-center px-4">
-                <Camera className="w-12 h-12 md:w-16 md:h-16 text-white mx-auto mb-3" />
-                <p className="text-white text-base md:text-lg">
-                  Inicia la cámara para comenzar
-                </p>
-              </div>
+              {!isDetecting && !isLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-lg">
+                  <div className="text-center px-4">
+                    <Camera className="w-12 h-12 md:w-16 md:h-16 text-white mx-auto mb-3" />
+                    <p className="text-white text-base md:text-lg">
+                      Inicia la cámara para comenzar
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
-          )}
-        </div>
 
-        {/* Controles */}
-        <div className="flex flex-col sm:flex-row gap-3 mt-4">
-          <button
-            onClick={startCamera}
-            disabled={isLoading || isDetecting}
-            className="flex-1 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 disabled:bg-gray-600 text-white font-semibold py-2 md:py-3 px-6 rounded-lg transition-all"
-          >
-            {isLoading ? "Cargando modelo..." : "Iniciar Cámara"}
-          </button>
-
-          <button
-            onClick={stopCamera}
-            disabled={!isDetecting}
-            className="flex-1 bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 disabled:bg-gray-600 text-white font-semibold py-2 md:py-3 px-6 rounded-lg transition-all"
-          >
-            Detener
-          </button>
-        </div>
-
-        {isDetecting && (
-          <div className="mt-3 text-center">
-            <span className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-xs md:text-sm font-mono">
-              FPS: {fps}
-            </span>
-          </div>
-        )}
-      </div>
-
-      {/* Panel detecciones */}
-      <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10">
-        <h2 className="text-xl md:text-2xl font-bold text-white mb-3 flex items-center gap-2">
-          <AlertCircle className="w-5 h-5 md:w-6 md:h-6" />
-          Detecciones
-        </h2>
-
-        {error && (
-          <div className="bg-red-500/20 border border-red-500 text-red-200 p-3 md:p-4 rounded-lg mb-4 text-sm">
-            {error}
-          </div>
-        )}
-
-        <div className="space-y-3">
-          {predictions.length === 0 ? (
-            <p className="text-gray-400 text-center py-6 md:py-8 text-sm md:text-base">
-              {isDetecting
-                ? "Buscando objetos..."
-                : "No hay detecciones activas"}
-            </p>
-          ) : (
-            predictions.map((pred, idx) => (
-              <div
-                key={idx}
-                className="bg-white/5 border border-white/10 rounded-lg p-3 md:p-4"
+            {/* Controles */}
+            <div className="flex flex-col sm:flex-row gap-3 mt-4">
+              <button
+                onClick={startCamera}
+                disabled={isLoading || isDetecting}
+                className="flex-1 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 disabled:bg-gray-600 text-white font-semibold py-2 md:py-3 px-6 rounded-lg transition-all"
               >
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-white font-semibold text-base md:text-lg">
-                    {pred.class}
-                  </span>
-                  <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs md:text-sm font-bold">
-                    {Math.round(pred.score * 100)}%
-                  </span>
-                </div>
+                {isLoading ? "Cargando modelo..." : "Iniciar Cámara"}
+              </button>
 
-                <div className="w-full bg-gray-700 rounded-full h-2">
-                  <div
-                    className="bg-gradient-to-r from-green-400 to-emerald-500 h-2 rounded-full"
-                    style={{ width: `${pred.score * 100}%` }}
-                  />
-                </div>
+              <button
+                onClick={stopCamera}
+                disabled={!isDetecting}
+                className="flex-1 bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 disabled:bg-gray-600 text-white font-semibold py-2 md:py-3 px-6 rounded-lg transition-all"
+              >
+                Detener
+              </button>
+            </div>
+
+            {isDetecting && (
+              <div className="mt-3 text-center">
+                <span className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-xs md:text-sm font-mono">
+                  FPS: {fps}
+                </span>
               </div>
-            ))
-          )}
+            )}
+          </div>
+
+          {/* Panel detecciones */}
+          <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 flex items-center gap-2">
+              <AlertCircle className="w-5 h-5 md:w-6 md:h-6" />
+              Detecciones
+            </h2>
+
+            {error && (
+              <div className="bg-red-500/20 border border-red-500 text-red-200 p-3 md:p-4 rounded-lg mb-4 text-sm">
+                {error}
+              </div>
+            )}
+
+            <div className="space-y-3">
+              {predictions.length === 0 ? (
+                <p className="text-gray-400 text-center py-6 md:py-8 text-sm md:text-base">
+                  {isDetecting
+                    ? "Buscando objetos..."
+                    : "No hay detecciones activas"}
+                </p>
+              ) : (
+                predictions.map((pred, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white/5 border border-white/10 rounded-lg p-3 md:p-4"
+                  >
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-white font-semibold text-base md:text-lg">
+                        {pred.class}
+                      </span>
+                      <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs md:text-sm font-bold">
+                        {Math.round(pred.score * 100)}%
+                      </span>
+                    </div>
+
+                    <div className="w-full bg-gray-700 rounded-full h-2">
+                      <div
+                        className="bg-gradient-to-r from-green-400 to-emerald-500 h-2 rounded-full"
+                        style={{ width: `${pred.score * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+
+            <div className="mt-6 bg-blue-500/10 border border-blue-500/30 rounded-lg p-3 md:p-4">
+              <h3 className="text-blue-300 font-semibold mb-1 md:mb-2">
+                💡 Modelo: COCO-SSD
+              </h3>
+              <p className="text-blue-200 text-xs md:text-sm">
+                Detecta hasta 80 objetos diferentes en tiempo real.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-6 bg-blue-500/10 border border-blue-500/30 rounded-lg p-3 md:p-4">
-          <h3 className="text-blue-300 font-semibold mb-1 md:mb-2">
-            💡 Modelo: COCO-SSD
+        {/* Footer */}
+        <div className="mt-6 md:mt-8 bg-black/20 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10">
+          <h3 className="text-white text-lg md:text-xl font-bold mb-2">
+            🚀 Sobre esta aplicación
           </h3>
-          <p className="text-blue-200 text-xs md:text-sm">
-            Detecta hasta 80 objetos diferentes en tiempo real.
+          <p className="text-blue-200 text-sm md:text-base">
+            Todo el procesamiento sucede en tu navegador, sin enviar datos a
+            ningún servidor. TensorFlow.js FTW 💙
           </p>
         </div>
       </div>
     </div>
-
-    {/* Footer */}
-    <div className="mt-6 md:mt-8 bg-black/20 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10">
-      <h3 className="text-white text-lg md:text-xl font-bold mb-2">
-        🚀 Sobre esta aplicación
-      </h3>
-      <p className="text-blue-200 text-sm md:text-base">
-        Todo el procesamiento sucede en tu navegador, sin enviar datos a ningún
-        servidor. TensorFlow.js FTW 💙
-      </p>
-    </div>
-  </div>
-</div>
-
   );
 }
