@@ -1,8 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Users, UserRound, Dog, Code, Footprints, Code2 } from "lucide-react";
 import { RouteItem } from "./types/types";
-
-
 
 const routes: RouteItem[] = [
   { href: "/users", label: "Ver Usuarios", icon: Users },
@@ -16,36 +16,70 @@ const routes: RouteItem[] = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
-      <main className="bg-white/70 backdrop-blur-lg border border-white/40 shadow-lg rounded-2xl p-10 flex flex-col items-center gap-8 w-full max-w-md transition-all">
-        {/* Título principal */}
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
-            👋 Bienvenido a ApiRenders
-          </h1>
-          <p className="text-gray-600">
-            Demuestra tus habilidades con un fetching de datos moderno 🚀
-          </p>
-        </div>
-
-        {/* Links a rutas - generados dinámicamente */}
-        <div className="flex flex-col gap-4 w-full">
-          {routes.map(({ href, label, icon: Icon }) => (
-            <Link
-              key={href}
-              href={href}
-              className="flex items-center gap-3 px-5 py-3 rounded-xl bg-slate-800 text-white hover:bg-slate-700 transition-all shadow-md hover:shadow-lg"
-            >
-              <Icon size={20} />
-              <span>{label}</span>
-            </Link>
-          ))}
-        </div>
-        {/* Footer mini */}
-        <p className="text-xs text-gray-500 mt-4">
-          Next.js + TypeScript + TailwindCSS
+    <div className="min-h-screen rounded-2xl  w-full p-10 bg-gradient-to-br from-slate-900 to-slate-800 flex flex-col items-center">
+      {/* Header */}
+      <div className="text-center mb-12 ">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">
+          👋 Bienvenido a ApiRenders
+        </h1>
+        <p className="text-slate-300 mt-3 text-lg">
+          Explora diferentes APIs con un diseño moderno y elegante 🚀
         </p>
-      </main>
+      </div>
+
+      {/* GRID DE TARJETAS */}
+      <div
+        className="
+          grid 
+          grid-cols-1 
+          sm:grid-cols-2 
+          lg:grid-cols-3 
+          gap-8 
+          w-full 
+          max-w-6xl
+        "
+      >
+        {routes.map(({ href, label, icon: Icon }) => (
+          <Link
+            key={href}
+            href={href}
+            className="
+              group 
+              bg-white/10 
+              backdrop-blur-xl 
+              border border-white/20 
+              p-8 
+              rounded-3xl 
+              shadow-xl 
+              hover:shadow-2xl 
+              hover:bg-white/20 
+              transition-all 
+              flex 
+              flex-col 
+              items-center 
+              text-center
+            "
+          >
+            {/* Icono grande */}
+            <div className="bg-white/20 p-5 rounded-2xl mb-5 group-hover:bg-white/30 transition">
+              <Icon size={40} className="text-white" />
+            </div>
+
+            {/* Texto */}
+            <h2 className="text-xl font-semibold text-white tracking-wide mb-1">
+              {label}
+            </h2>
+            <p className="text-sm text-slate-300 opacity-80">
+              Ir a la sección →
+            </p>
+          </Link>
+        ))}
+      </div>
+
+      {/* Footer */}
+      <p className="text-xs text-slate-400 mt-14">
+        Next.js • TypeScript • TailwindCSS
+      </p>
     </div>
   );
 }
