@@ -6,7 +6,7 @@ import RouteProgress from "./components/RouteProgress";
 import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
-  title: "Prueba Técnica",
+  title: "ApiRenders",
   description: "Dashboard con sidebar y rutas",
 };
 
