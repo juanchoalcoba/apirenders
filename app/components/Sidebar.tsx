@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Users, UserRound, Menu, Bubbles, Dog, Code, Volleyball } from "lucide-react";
+import { Users, UserRound, Menu, Bubbles, Dog, Code, Volleyball, Code2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { RouteItem } from "../types/types";
 
@@ -13,6 +13,7 @@ const navItems: RouteItem[] = [
   { href: "/dogs", label: "DogsApi", icon: Dog },
   { href: "/league", label: "Teams", icon: Volleyball },
   { href: "/example-fetching", label: "Example", icon: Code },
+  { href: "/tensorflow", label: "TensorFlowIA", icon: Code2 },
 ];
 
 export default function Sidebar() {

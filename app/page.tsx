@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Users, UserRound, Dog, Code, Footprints } from "lucide-react";
+import { Users, UserRound, Dog, Code, Footprints, Code2 } from "lucide-react";
 import { RouteItem } from "./types/types";
 
 
@@ -11,6 +11,7 @@ const routes: RouteItem[] = [
   { href: "/dogs", label: "Show Dogs", icon: Dog },
   { href: "/league", label: "Leagues Football", icon: Footprints },
   { href: "/example-fetching", label: "Example Code", icon: Code },
+  { href: "/tensorflow", label: "TensorFlowJsIA", icon: Code2 },
 ];
 
 export default function Home() {
