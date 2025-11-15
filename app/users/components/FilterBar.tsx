@@ -155,7 +155,7 @@ export default function FilterBar({ users }: { users: User[] }) {
         </button>
 
         {/* Texto con la página actual */}
-        <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
+        <span className="font-medium text-gray-700 dark:text-gray-300">
           Página {currentPage} de {totalPages}
         </span>
 
