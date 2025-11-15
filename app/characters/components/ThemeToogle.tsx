@@ -20,9 +20,14 @@ export function ThemeToggle() {
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-full cursor-pointer transition-colors dark:text-white dark:bg-gray-100"
-    >
+  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+  className="
+    p-2 rounded-full cursor-pointer transition-colors 
+    bg-gray-200 text-black              /* modo claro */
+    dark:bg-gray-100 dark:text-white    /* modo oscuro */
+  "
+>
+
       {theme === "dark" ? (
         <Sun className="w-5 h-5 text-yellow-700" />
       ) : (
