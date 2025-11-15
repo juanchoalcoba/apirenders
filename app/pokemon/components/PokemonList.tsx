@@ -81,7 +81,7 @@ export default function PokemonList({ pokemons, itemsPerPage = 6 }: Props) {
               Anterior
             </button>
 
-            <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
+            <span className="font-medium text-gray-700 dark:text-gray-300">
             {currentPage} / {totalPages}
             </span>
 
