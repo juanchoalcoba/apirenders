@@ -33,7 +33,7 @@ export default function ExampleFetchingPage() {
       </div>
 
       {/* Title */}
-      <h1 className="text-4xl md:text-5xl font-extrabold mb-8 text-center">
+      <h1 className="text-xl md:text-5xl font-extrabold mb-8 text-center">
         🚀 Ejemplo de Fetching en Next.js y React
       </h1>
 

@@ -17,7 +17,7 @@ export default async function CharactersPage() {
           <div className="p-3 rounded-xl bg-blue-600 text-white shadow-md">
             <Cat className="w-6 h-6" />
           </div>
-          <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">
             Rick & Morty
           </h1>
         </div>
