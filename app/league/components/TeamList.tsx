@@ -1,4 +1,4 @@
-import { Team } from "../../utils/getTeams";
+import { Team } from "@/app/types/types";
 import TeamCard from "./TeamCard";
 
 interface Props {
