@@ -22,7 +22,7 @@ export function ThemeToggle() {
         <Sun className="w-5 h-5 text-yellow-500" />
       ) : (
         // 🌙 Luna heredando negro del botón (modo claro)
-        <Moon className="w-5 h-5 text-inherit" />
+        <Moon className="w-5 h-5 text-yellow-500" />
       )}
     </button>
   );

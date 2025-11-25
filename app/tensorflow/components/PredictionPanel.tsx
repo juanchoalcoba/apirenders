@@ -19,7 +19,7 @@ export default function PredictionsPanel({ predictions = [] }: Props) {
           {predictions.map((pred, idx) => (
             <div
               key={idx}
-              className="bg-gradient-to-r from-green-700/20 via-green-500/10 to-green-700/20 border border-green-400/20 rounded-lg p-3 md:p-4 flex justify-between items-center hover:scale-105 hover:shadow-md transition-transform duration-200"
+              className="bg-linear-to-r from-green-700/20 via-green-500/10 to-green-700/20 border border-green-400/20 rounded-lg p-3 md:p-4 flex justify-between items-center hover:scale-105 hover:shadow-md transition-transform duration-200"
             >
               <span className="text-white font-semibold text-sm md:text-base">{pred.class}</span>
               <span className="bg-green-500 text-white px-2 py-1 rounded-full text-xs md:text-sm font-bold">
