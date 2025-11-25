@@ -4,6 +4,9 @@ import Link from "next/link";
 import { Users, UserRound, Dog, Code, Footprints, Code2 } from "lucide-react";
 import { RouteItem } from "./types/types";
 
+
+
+
 const routes: RouteItem[] = [
   { href: "/users", label: "Ver Usuarios", icon: Users },
   { href: "/characters", label: "Ver Personajes", icon: UserRound },
@@ -14,9 +17,14 @@ const routes: RouteItem[] = [
   { href: "/tensorflow", label: "TensorFlowJsIA", icon: Code2 },
 ];
 
+
+
+
+
 export default function Home() {
+  
   return (
-    <div className="min-h-screen rounded-2xl  w-full p-10 bg-gradient-to-b from-gray-950 to-gray-800 flex flex-col items-center">
+    <div className="min-h-screen rounded-2xl  w-full p-10 bg-linear-to-b from-gray-950 to-gray-800 flex flex-col items-center">
       {/* Header */}
       <div className="text-center mb-12 ">
         <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">
@@ -37,6 +45,7 @@ export default function Home() {
           gap-8 
           w-full 
           max-w-6xl
+          
         "
       >
         {routes.map(({ href, label, icon: Icon }) => (
@@ -45,7 +54,7 @@ export default function Home() {
             href={href}
             className="
               group 
-              bg-white/10 
+              bg-linear-to-b from-gray-950 to-gray-800 
               backdrop-blur-xl 
               border border-white/20 
               p-8 

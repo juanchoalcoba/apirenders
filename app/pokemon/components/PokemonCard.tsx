@@ -16,7 +16,7 @@ export default function PokemonCard({ pokemon }: Props) {
   return (
     <Link
       href={`/pokemon/${id}`}
-      className="flex flex-col items-center bg-white dark:bg-gradient-to-b from-gray-950 to-gray-800 shadow-md rounded-xl p-4 hover:scale-105 transition-all cursor-pointer focus-visible:ring-4 focus-visible:ring-blue-500/50 outline-none"
+      className="flex flex-col items-center bg-white dark:bg-linear-to-b from-gray-950 to-gray-800 shadow-md rounded-xl p-4 hover:scale-105 transition-all cursor-pointer focus-visible:ring-4 focus-visible:ring-blue-500/50 outline-none"
     >
       <Image
         src={imageUrl}

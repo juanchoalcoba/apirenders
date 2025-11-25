@@ -10,7 +10,7 @@ export default function CharacterCard({ character }: { character: Character }) {
       href={`/characters/${character.id}`}
       className="
         group
-        bg-white dark:bg-gradient-to-b from-gray-950 to-gray-800 
+        bg-white dark:bg-linear-to-b from-gray-950 to-gray-800 
         text-neutral-900 dark:text-white
         border border-neutral-200 dark:border-neutral-800
         rounded-2xl

@@ -30,12 +30,10 @@ export async function getDogs(options: GetDogsOptions = {}): Promise<Dog[]> {
       },
       next: { revalidate: 60 }, // ISR opcional
     });
-
     if (!res.ok) {
       const errorText = await res.text();
       throw new Error(`Dog API error: ${res.status} - ${errorText}`);
     }
-
     const data: Dog[] = await res.json();
     return data;
   } catch (error: unknown) {

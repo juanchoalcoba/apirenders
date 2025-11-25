@@ -2,14 +2,19 @@ import TeamList from "../components/TeamList";
 import { getTeams } from "@/app/utils/getTeams";
 import Link from "next/link";
 
-export default async function LeaguePage(props: { params: Promise<{ id: string }> }) {
-  const { id } = await props.params; // ⬅️ Esperamos la promesa
+type LeagueParams = {
+  id: string;
+};
+
+export default async function LeaguePage({ params }: { params: Promise<LeagueParams> }) {
+
+  const { id } = await params; // ⬅️ más limpio
   const leagueId = parseInt(id);
   const currentSeason = 2023;
 
   const teams = await getTeams(leagueId, currentSeason);
 
-  const leagueNames: { [key: number]: string } = {
+  const leagueNames: Record<number, string> = {
     39: "Premier League",
     140: "La Liga",
     135: "Serie A",
@@ -26,10 +31,7 @@ export default async function LeaguePage(props: { params: Promise<{ id: string }
 
   return (
     <main className="container mx-auto px-4 py-8">
-      <Link
-        href="/league"
-        className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline mb-6"
-      >
+      <Link href="/league" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline mb-6">
         ← Back to Leagues
       </Link>
 
@@ -37,16 +39,12 @@ export default async function LeaguePage(props: { params: Promise<{ id: string }
         {leagueNames[leagueId] || `League ${leagueId}`} Teams
       </h1>
 
-      <p className="text-center text-gray-600 dark:text-gray-400 mb-8">
-        Season {currentSeason}
-      </p>
+      <p className="text-center text-gray-600 dark:text-gray-400 mb-8">Season {currentSeason}</p>
 
       {teams.length > 0 ? (
         <TeamList teams={teams} />
       ) : (
-        <p className="text-center text-gray-500 dark:text-gray-400">
-          No teams found for this league
-        </p>
+        <p className="text-center text-gray-500 dark:text-gray-400">No teams found for this league</p>
       )}
     </main>
   );

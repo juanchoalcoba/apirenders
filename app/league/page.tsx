@@ -1,4 +1,4 @@
-import { ArrowLeft, PlaySquareIcon, Volleyball } from "lucide-react";
+import { ArrowLeft, Volleyball } from "lucide-react";
 import { getMainLeagues } from "../utils/getLeagues";
 import LeagueList from "./components/LeagueList";
 import Link from "next/link";

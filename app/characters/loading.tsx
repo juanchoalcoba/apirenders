@@ -1,4 +1,3 @@
-import React from 'react'
 
 export default function Loading() {
   // Simulamos 8 skeleton cards
@@ -26,7 +25,7 @@ export default function Loading() {
               overflow-hidden
               shadow-md
               flex flex-col items-center p-4
-              bg-white dark:bg-gradient-to-b from-gray-950 to-gray-800 
+              bg-white dark:bg-linear-to-b from-gray-950 to-gray-800 
               animate-pulse
             "
           >

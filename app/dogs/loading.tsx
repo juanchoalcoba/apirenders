@@ -1,4 +1,3 @@
-import React from 'react'
 
 export default function Loading() {
   // Simulamos 8 skeleton cards

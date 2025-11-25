@@ -34,13 +34,13 @@ export default async function UsersPage() {
       </div>
 
       {/* Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent mb-8" />
+      <div className="h-px w-full bg-linear-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent mb-8" />
 
       {/* Contenido principal */}
       <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700 hover:scrollbar-thumb-blue-500 rounded-xl">
         <FilterBar users={users} />
       </div>
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent mb-8" />
+            <div className="h-px w-full bg-linear-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent mb-8" />
 
     </section>
   );

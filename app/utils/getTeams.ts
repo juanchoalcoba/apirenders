@@ -13,13 +13,13 @@ export async function getTeams(
     headers: {
       "x-apisports-key": process.env.NEXT_PUBLIC_FOOTBALL_API_TOKEN || "",
     },
-    cache: "no-store", // fuerza datos frescos
   });
 
   if (!res.ok) {
     console.error("❌ Error en fetch de equipos:", res.status, res.statusText);
-    throw new Error(`Error ${res.status}`);
+    throw new Error(`Failed fetch: ${res.status} ${res.statusText} – league ${league}, season ${season}`);
   }
+  console.log("llegamos")
 
   const json: ApiTeamsResponse = await res.json();
 

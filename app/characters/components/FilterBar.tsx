@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 interface Props {
   onFilter: (query: string) => void
-  placeholder?: string // opcional, si no se pasa usamos un default
+  placeholder?: string
 }
 
 export default function FilterBar({ onFilter, placeholder = "Buscar..." }: Props) {
